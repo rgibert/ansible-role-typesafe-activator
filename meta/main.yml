@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  role_name: typesafe_activator
+  author: Richard Gibert
+  description: Installs Typesafe Activator
+  license: GPLv3
+  min_ansible_version: 1.2
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Ubuntu
+      versions:
+        - artful
+        - bionic
+        - cosmic
+        - trusty
+        - xenial
+  galaxy_tags:
+    - typesafe_activator
+dependencies: []
