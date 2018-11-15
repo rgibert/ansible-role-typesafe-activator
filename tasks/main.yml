@@ -1,0 +1,35 @@
+---
+- block:
+
+    - name: install dependencies
+      package:
+        name: unzip
+        state: present
+
+    - name: create install path
+      file:
+        state: directory
+        path: "{{ typesafe_activator_install_root }}"
+        mode: "0755"
+        owner: "{{ typesafe_activator_user }}"
+        group: "{{ typesafe_activator_group }}"
+
+    - name: install package
+      unarchive:
+        remote_src: true
+        src: "{{ typesafe_activator_dl_uri }}"
+        dest: "{{ typesafe_activator_install_root }}"
+        owner: "{{ typesafe_activator_user }}"
+        group: "{{ typesafe_activator_group }}"
+
+    - name: link to versioned dir
+      file:
+        state: link
+        src: "{{ typesafe_activator_install_root }}/activator-dist-{{ typesafe_activator_version }}"
+        dest: "{{ typesafe_activator_install_root }}/typesafe-activator"
+        owner: "{{ typesafe_activator_user }}"
+        group: "{{ typesafe_activator_group }}"
+
+  become: true
+  tags:
+    - typesafe-activator
