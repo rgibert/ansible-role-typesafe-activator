@@ -15,8 +15,6 @@ galaxy_info:
         - artful
         - bionic
         - cosmic
-        - trusty
-        - xenial
   galaxy_tags:
     - typesafe_activator
 dependencies: []
