@@ -16,6 +16,7 @@
 
     - name: install package
       unarchive:
+        creates: "{{ typesafe_activator_install_root }}/activator-dist-{{ typesafe_activator_version }}/bin/activator"
         remote_src: true
         src: "{{ typesafe_activator_dl_uri }}"
         dest: "{{ typesafe_activator_install_root }}"
