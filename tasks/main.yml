@@ -30,6 +30,15 @@
         dest: "{{ typesafe_activator_install_root }}/typesafe-activator"
         owner: "{{ typesafe_activator_user }}"
         group: "{{ typesafe_activator_group }}"
+    
+    - name: fix activator missing a+x
+      file:
+        state: file
+        path: "{{ item }}"
+        mode: "0755"
+      with_items:
+        - "{{ typesafe_activator_install_root }}/activator-dist-{{ typesafe_activator_version }}/bin/activator"
+        - "{{ typesafe_activator_install_root }}/activator-dist-{{ typesafe_activator_version }}/bin/activator-dist"
 
   become: true
   tags:
