@@ -30,7 +30,7 @@
         dest: "{{ typesafe_activator_install_root }}/typesafe-activator"
         owner: "{{ typesafe_activator_user }}"
         group: "{{ typesafe_activator_group }}"
-    
+
     - name: fix activator missing a+x
       file:
         state: file
